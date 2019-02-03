@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import TodoListComponent from "../../components/TodoList";
 import { TodoListContainerStyled } from "./styled";
+import { withRouter } from "react-router-dom";
 
 class TodoList extends Component {
   constructor(props) {
     super(props);
+    const { message = "" } = props.match.params;
     this.state = {
-      defaultTodoText: ""
+      defaultTodoText: message
     };
   }
   render() {
@@ -19,4 +21,4 @@ class TodoList extends Component {
   }
 }
 
-export default TodoList;
+export default withRouter(TodoList);
