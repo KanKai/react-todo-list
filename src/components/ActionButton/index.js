@@ -1,9 +1,16 @@
 import React, { Component } from "react";
+import { ButtonWrapper, EditButton, RemoveButton } from "./styled";
 
-class Action extends Component {
+class ActionButton extends Component {
   render() {
-    return <div />;
+    const { onEdit, onRemove } = this.props;
+    return (
+      <ButtonWrapper>
+        <EditButton onClick={onEdit} />
+        <RemoveButton onClick={onRemove} />
+      </ButtonWrapper>
+    );
   }
 }
 
-export default Action;
+export default ActionButton;

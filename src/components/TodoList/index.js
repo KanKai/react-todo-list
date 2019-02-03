@@ -32,9 +32,30 @@ class TodoListComponent extends Component {
     }
   };
 
-  clearMessage() {
+  clearMessage = () => {
     this.setState({ message: "" });
-  }
+  };
+
+  clearDataAll = () => {
+    this.clearMessage();
+    this.setState({ todos: [] });
+  };
+
+  removeById = id => {
+    const { todos } = this.state;
+    const newTodo = todos.filter(todo => todo.id !== id);
+    this.setState({ todos: newTodo });
+  };
+
+  editById = id => {
+    const { todos } = this.state;
+    const editTodo = todos.find(todo => todo.id === id);
+    const newMessage = prompt("Edit this todo", editTodo.message);
+    editTodo.message = newMessage;
+    const newTodo = [...todos];
+    newTodo[newTodo.findIndex(todo => todo.id === id)] = editTodo;
+    this.setState({ todos: newTodo });
+  };
 
   render() {
     const { message, todos } = this.state;
@@ -43,9 +64,11 @@ class TodoListComponent extends Component {
         <MyInput
           value={message}
           onChange={this.handleMessage}
+          onClear={this.clearMessage}
+          onClearAll={this.clearDataAll}
           onEnter={this.onPushTodo}
         />
-        {renderTodoItem(todos)}
+        {renderTodoItem(todos, this.editById, this.removeById)}
       </TodoListWrapper>
     );
   }

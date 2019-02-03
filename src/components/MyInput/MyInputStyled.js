@@ -1,7 +1,12 @@
+import React from "react";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSync } from "@fortawesome/free-solid-svg-icons";
 
 const borderColor = "#e8e8e8";
 const bgColor = "#f1f1f1f1";
+
+const MyInputContainer = styled.div``;
 
 const InputText = styled.input`
   padding: 10px;
@@ -15,7 +20,7 @@ const InputText = styled.input`
 `;
 
 const MyInputWrapper = styled.div`
-  margin: 10px 0;
+  margin: 2px 0;
   display: flex;
   background-color: ${bgColor};
 `;
@@ -30,4 +35,29 @@ const ClearButton = styled.button`
   cursor: pointer;
 `;
 
-export { InputText, MyInputWrapper, ClearButton };
+const ClearAllButtonStyleLeft = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #46577b;
+`;
+
+const ClearAllIcon = styled(FontAwesomeIcon)`
+  margin-right: 3px;
+  padding: 5px;
+  background-color: #46577b;
+  border: 1px solid #46577b;
+  color: #ffffff;
+  cursor: pointer;
+`;
+
+const ClearAllButton = props => <ClearAllIcon icon={faSync} {...props} />;
+
+export {
+  InputText,
+  MyInputWrapper,
+  ClearButton,
+  MyInputContainer,
+  ClearAllButton,
+  ClearAllButtonStyleLeft
+};
