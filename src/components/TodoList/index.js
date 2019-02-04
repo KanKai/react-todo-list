@@ -3,6 +3,7 @@ import { TodoListWrapper } from "./styled";
 import MyInput from "../MyInput";
 import { generateID } from "../../utils";
 import renderTodoItem from "./renderTodoItem";
+import { ContextApi } from "./contextApi";
 
 class TodoListComponent extends Component {
   constructor(props) {
@@ -74,4 +75,14 @@ class TodoListComponent extends Component {
   }
 }
 
-export default TodoListComponent;
+const withContext = () => (
+  <ContextApi.Provider
+    value={{
+      color: "red"
+    }}
+  >
+    <TodoListComponent />
+  </ContextApi.Provider>
+);
+
+export default withContext;
