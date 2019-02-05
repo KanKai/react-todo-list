@@ -5,7 +5,7 @@ import {
   InputText,
   ClearButton,
   ClearAllButton,
-  ClearAllButtonStyleLeft
+  ClearAllButtonWrapper
 } from "./MyInputStyled";
 
 class MyInput extends Component {
@@ -18,9 +18,9 @@ class MyInput extends Component {
     const { value, onChange, onClear, onClearAll } = this.props;
     return (
       <React.Fragment>
-        <ClearAllButtonStyleLeft>
+        <ClearAllButtonWrapper>
           <ClearAllButton onClick={onClearAll} /> CLEAR ALL DATA
-        </ClearAllButtonStyleLeft>
+        </ClearAllButtonWrapper>
         <MyInputWrapper>
           <InputText
             value={value}

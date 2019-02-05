@@ -35,7 +35,7 @@ const ClearButton = styled.button`
   cursor: pointer;
 `;
 
-const ClearAllButtonStyleLeft = styled.div`
+const ClearAllButtonWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -59,5 +59,5 @@ export {
   ClearButton,
   MyInputContainer,
   ClearAllButton,
-  ClearAllButtonStyleLeft
+  ClearAllButtonWrapper
 };
